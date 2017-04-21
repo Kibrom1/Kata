@@ -14,23 +14,24 @@ function initMap() {
     searchBox.setBounds(map.getBounds());
   });
 
+  var markers = [];
+
   searchBox.addListener('places_changed', function () {
     var places = searchBox.getPlaces();
 
     if (places.length == 0) {
       return;
     }
-    var markers = [];
-    console.log(" Length of Places: " + markers.length)
+
     markers.forEach(function (marker) {
       marker.setMap(null);
     });
 
-    var bounds = new google.maps.LatLnBounds();
+    var bounds = new google.maps.LatLngBounds();
+    
 
     places.forEach(function (place) {
       if (!place.geometry) {
-        console.log('Returned Places');
         return;
       }
 
@@ -41,7 +42,7 @@ function initMap() {
         anchor: new google.maps.Point(17, 34),
         scaledSize: new google.maps.Size(25, 25)
       };
-      markers.push(new google.maps.Markers({
+      markers.push(new google.maps.Marker({
         map: map,
         icon: icon,
         title: place.name,
