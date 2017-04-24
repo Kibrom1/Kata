@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="googleMapApp">
+
+<head>
+  <title>Simple Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="angular.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqGNnO81xaT8QMwHC9G6uEmu60AD35V-8&libraries=places"
+    async defer></script>
+  <script src="js/src/angular.js">
+
+  </script>
+  
+</head>
+
+<body>
+  <p> <input type="text" ng-model="placeName" placeholder="Places to Search"></p>
+  </hr>
+  <div ng-controller="mapController as ctrl">
+    <div id="map">
+      <span> {{ctrl.trial}}</span>
+    </div>
+
+  </div>
+  <!-- Replace the value of the key parameter with your own API key. -->
+
+</body>
+
+</html>
